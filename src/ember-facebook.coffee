@@ -39,7 +39,7 @@
       if response.status is 'connected'
           FB.api '/me', (user) =>
             FBUser = Ember.Object.create user
-            FBUser.accessToken = response.authResponse.accessToken
+            FBUser.set 'accessToken', response.authResponse.accessToken
 
             if @get 'fetchPicture'
               FB.api '/me/picture', (path) =>
